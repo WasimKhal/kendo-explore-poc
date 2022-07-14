@@ -1,0 +1,45 @@
+<kendo-splitter>
+    <kendo-splitter-pane [collapsible]="true" size="65%">
+        <div style="display: flex">
+            <div style="display: table-cell; width: 30%;">
+                <button kendoButton *ngIf="isDrillDownEnabled" (click)="goback()" [primary]="true"
+                    [style.margin]="'4px'">
+                    Go Back
+                </button>
+            </div>
+            <div style="display: table-cell; text-align: center; width: 30%;">
+                <h4 [textContent]="title" [align]="'center'"></h4>
+            </div>
+        </div>
+        <kendo-chart [transitions]="true" [style.height]="'400px'" [style.width]="'100%'"
+            (seriesClick)="seriesClick($event)">
+            <!-- <kendo-chart-tooltip format='{0}%'></kendo-chart-tooltip> -->
+            <kendo-chart-tooltip>
+                <ng-template kendoChartSeriesTooltipTemplate let-value="value">
+                    Value is {{value}}
+                </ng-template>
+            </kendo-chart-tooltip>
+
+            <kendo-chart-series>
+                <kendo-chart-series-item type="pie" [data]="pieData?.pieData" categoryField="field" field="revenue"
+                    *ngIf="pieData">
+                    <kendo-chart-series-item-labels [align]="'center'" color="#000" [content]="labelContent">
+                    </kendo-chart-series-item-labels>
+                </kendo-chart-series-item>
+            </kendo-chart-series>
+            <kendo-chart-legend [visible]="true" position="right" orientation="vertical" [padding]="8">
+            </kendo-chart-legend>
+        </kendo-chart>
+
+    </kendo-splitter-pane>
+    <kendo-splitter-pane>
+        <kendo-grid [data]="pieData?.pieData" *ngIf="pieData">
+            <kendo-grid-column field="id" title="S.No" [headerStyle]="{ 'background-color': '#666' }"
+                [headerClass]="'headerCustomClass'"> </kendo-grid-column>
+            <kendo-grid-column field="field" title="Field Description" [headerStyle]="{ 'background-color': '#666' }"
+                [headerClass]="'headerCustomClass'"> </kendo-grid-column>
+            <kendo-grid-column field="revenue" title="Revenue" [headerStyle]="{ 'background-color': '#666' }"
+                [headerClass]="'headerCustomClass'"> </kendo-grid-column>
+        </kendo-grid>
+    </kendo-splitter-pane>
+</kendo-splitter>

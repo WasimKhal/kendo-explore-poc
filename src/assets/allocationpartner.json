@@ -1,0 +1,35 @@
+{
+    "catagories": ["Felicia Chia","Lee Jingyl","Cindy Lee"],
+    "series": [
+        {
+            "name": "5th Target",
+            "value": [15,10,12],
+            "color": "#5a7fb8"
+        },
+        {
+            "name": "4th Target",
+            "value": [8,7,9],
+            "color": "#b45650"
+        }
+        ,
+        {
+            "name": "3rd Target",
+            "value": [24,46,16],
+            "color": "#a0ba66"
+        }
+        ,
+        {
+            "name": "2nd Target",
+            "value": [23,32,13],
+            "color": "#7d649d"
+        }
+        ,
+        {
+            "name": "1st Target",
+            "value": [8,18,10],
+            "color": "#64a9c3"
+        }
+        
+    ]
+
+}

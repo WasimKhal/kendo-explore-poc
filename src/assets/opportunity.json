@@ -1,0 +1,64 @@
+{
+    "catagories": ["Dylan Lee", "Alaric Lee", "LanPeng Chin", "Cindy Lee", "Rebecca Lee", "Amy To", "Shelim Talukder", "Jung Ming Teo", "Denis Philippov", "Prannay Shah", "Arpita Sen", "Shariza Abdul", "Valerie Koo", "Wilson Kook", "Garrick Chua", "Peter Chan", "Fiona Wong", "Max Loy/valerie Koo", "Jun Ming"],
+    "series": [
+        {
+            "name": "(Blank)",
+            "value": [5,0,3,0,4,13,5,3,4,0,5,0,2,0,0,0,0,0,0],
+            "color": "#807F80"
+        },
+        {
+            "name": "Reasearching Client",
+            "value": [0,7,2,3,0,0,0,0,0,0,0,0,5,2,2,0,0,0,2],
+            "color": "#FEF060"
+        }
+        ,
+        {
+            "name": "Reached out TPC team for info",
+            "value": [46,24,31,12,28,57,26,28,12,42,25,17,21,5,4,0,4,4,0],
+            "color": "#F1DB00"
+        }
+        ,
+        {
+            "name": "Reached out to TPC for introduction",
+            "value": [4,0,21,26,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            "color": "#F0C200"
+        }
+        ,
+        {
+            "name": "Touch Base with Client",
+            "value": [10,8,7,13,16,0,12,6,26,4,6,7,2,3,0,0,0,0],
+            "color": "#F8E390"
+        }
+        ,
+        {
+            "name": "Proposing Fee",
+            "value": [4,5,8,2,11,0,3,6,6,0,7,3,2,3,0,0,0,0,0],
+            "color":"#E7A300"
+        }
+        ,
+        {
+            "name": "Client rejected/Lost",
+            "value": [0,4,2,5,10,0,0,0,0,0,0,0,0,0,0,2,0,5,0],
+            "color": "#C40000"
+        }
+        ,
+        {
+            "name": "TPD prepared by othrs",
+            "value": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0],
+            "color":"#E442A6"
+        }
+        ,
+        {
+            "name": "Client accepted",
+            "value": [11,3,4,7,9,0,4,3,3,0,2,5,0,3,2,2,0,0,0],
+            "color":"#6EAD47"
+        }
+        ,
+        {
+            "name": "No action required",
+            "value": [19,45,18,28,8,13,38,30,13,12,11,9,2,0,0,4,0,0,1],
+            "color": "#000000"
+        }
+    ]
+
+}

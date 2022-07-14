@@ -1,0 +1,523 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27, 31, 35, .2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+    border-color: rgba(27, 31, 35, .35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container>*:not(.circle-link),
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+
+<!-- <button-control-panel></button-control-panel> -->
+
+<!-- <div class="item">Test</div> -->
+<kendo-splitter orientation="vertical">
+  <kendo-splitter-pane [collapsible]="true" size="50%" [collapsed]="false">
+
+    <div style="width: 100%; overflow: hidden;">
+      <div style="display: flex">
+
+        <div style="width: 60%; display: table-cell;">
+          <h2>1.Exploring Basic Kendo chart features!</h2>
+          <kendo-chart [categoryAxis]="{ categories: categories }" [transitions]="showTransitions">
+            <kendo-chart-title text="Sample Chart Title"></kendo-chart-title>
+            <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+            <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
+            <kendo-chart-series>
+              <kendo-chart-series-item *ngFor="let item of series" [type]="'line'" [style]="'smooth'" [data]="item.data"
+                [name]="item.name">
+              </kendo-chart-series-item>
+            </kendo-chart-series>
+          </kendo-chart>
+        </div>
+
+        <div style="width: 40%;display: table-cell;">
+          <h2>2. Hide the series!</h2>
+          <button kendoButton (click)="toggleSeries()">Show Line series</button>
+          <kendo-chart [transitions]="showTransitions">
+            <kendo-chart-series>
+              <kendo-chart-series-item [data]="[1, 2, 3, 5]">
+              </kendo-chart-series-item>
+              <kendo-chart-series-item type="line" [data]="[5, 3, 2, 1]" *ngIf="showSeries">
+              </kendo-chart-series-item>
+            </kendo-chart-series>
+          </kendo-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="k-block" [align]="'center'">
+      <h2>3.Exploring Kendo drilldown features!</h2>
+      <app-chart-control></app-chart-control>
+    </div>
+    <br>
+    <div class="k-block" style="width: 100%; min-height:400px;">
+      <h2>4.Multi-level Drilldown from Json - get data!</h2>
+      <dynamic-chart-control></dynamic-chart-control>
+    </div>
+    <div style="width: 100%;height:460px">
+      <!-- 07/12/2022 -->
+      <h2>5. Chart with adjacent drilldown results on Table! </h2>
+      <chart-table></chart-table>
+    </div>
+
+  </kendo-splitter-pane>
+  <!-- 07/12/2022 -->
+  <kendo-splitter-pane [collapsible]="true" [collapsed]="false">
+
+    <div style="width: 100%;height:460px">
+      <!-- 07/12/2022 -->
+
+      <opportunity-chart></opportunity-chart>
+    </div>
+    <div class="k-block" style="width: 100%;height:460px">
+      <div style="margin-top: 6px;">
+        <h2>7. Monthly Revenue </h2>
+        <select name="overview" id="overview" style="border: 1px solid #dddd;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #EBEBF1;">
+          <option value="overview">Overview</option>
+        </select>&nbsp;&nbsp;&nbsp;
+        <select name="year" id="year" style="border: 1px solid #dddd;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #EBEBF1;">
+          <option value="2022">FY 2022</option>
+          <option value="2021">FY 2021</option>
+        </select>
+      </div>
+      <div style="display: flex;">
+        <div style="width:15%;display: table-cell;">
+          <label style="font-size: 40px;font-weight: bold">$37.5K</label>
+          <br>
+          <label style="font-size: 20px;">Total Earn <span class="k-icon k-i-kpi-status-hold"
+              style="color: #01CE99;"></span><span style="color: #01CE99;">+2.45%</span></label>
+          <br>
+          <br>
+          <label style="color: #01CE99;font-size: 20px;font-weight: bold;"><span class="k-icon k-i-check-circle"
+              style="font-size: 30px;"></span>&nbsp;On Track</label>
+        </div>
+        <div style="width:50%;display: table-cell;height:330px">
+          <kendo-chart [transitions]="true">
+
+            <kendo-chart-tooltip style="font-size: 18px;font-weight: bold;">
+              <ng-template kendoChartSeriesTooltipTemplate let-value="value">
+                ${{ value }}.00
+                <!-- You need to format -->
+              </ng-template>
+            </kendo-chart-tooltip>
+
+            <kendo-chart-category-axis>
+              <kendo-chart-category-axis-item [categories]="['SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB', 'MAR']">
+              </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+
+            <kendo-chart-series>
+              <kendo-chart-series-item [type]="chartType" [style]="style" [data]="[123, 276, 310, 212, 240, 156, 98]"
+                [width]="6" color="#1E48E1">
+              </kendo-chart-series-item>
+              <kendo-chart-series-item [type]="chartType" [style]="style" [data]="[165, 210, 287, 144, 190, 167, 212]"
+                [width]="6" color="#68D2FF">
+              </kendo-chart-series-item>
+
+              <kendo-chart-axis-defaults [majorGridLines]="{ visible : false}">
+              </kendo-chart-axis-defaults>
+
+              <kendo-chart-value-axis>
+                <kendo-chart-value-axis-item [line]="{visible:false}" [visible]="false">
+                </kendo-chart-value-axis-item>
+              </kendo-chart-value-axis>
+
+              <!-- <kendo-chart-series-item-tooltip>
+                <ng-template let-value="value">
+                  Series 1 value: {{ value }}
+                </ng-template>
+              </kendo-chart-series-item-tooltip> -->
+
+            </kendo-chart-series>
+
+          </kendo-chart>
+        </div>
+        <div style="width:15%;display: table-cell;">
+          <h4>Change Chart Type: </h4>
+          <select name=" chartSelect" (change)="onChange($event.target)" style="    border: 1px solid #dddd;
+          padding: 10px;
+          border-radius: 4px;
+          background-color: #EBEBF1;">
+
+            <option value="line">Line</option>
+            <option value="area">Area</option>
+            <option value="bar">Bar</option>
+            <option value="column">Column</option>
+            <option value="pie">Pie</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class=" k-block btmSecChart" style="display: flex;width: 100%;">
+              <div class="btmSecChartInner">
+                <div style="display: flex;width: 100%;margin: 10px;">
+                  <div style="margin-right:8px;display: table-cell;">
+                    <h2>8. Total Opportunities</h2>
+                  </div>
+                  <div style="margin-top:8px;display: table-cell;">
+                    <select name="year" id="year" style="border: 1px solid #dddd;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #EBEBF1;">
+                      <option value="2022">FY 2022</option>
+                      <option value="2021">FY 2021</option>
+                    </select>
+                  </div>
+
+                </div>
+                <div class="table">
+                  <div class="row">
+                    <div class="cell cgold">Opportunities</div>
+                    <div class="cell cblue">% With Progress</div>
+                  </div>
+                  <div class="row">
+                    <div class="cell txtbol">1037</div>
+                    <div class="cell txtbol">95.66%</div>
+                  </div>
+                  <div class="row">
+                    <div class="cell cgreen">Wins</div>
+                    <div class="cell cblue">% Follow Up Next Year</div>
+                  </div>
+                  <div class="row">
+                    <div class="cell txtbol">61</div>
+                    <div class="cell txtbol">4.92%</div>
+                  </div>
+                  <div class="row">
+                    <div class="cell cgreen">% Wins vs. Total</div>
+                    <div class="cell"></div>
+                  </div>
+                  <div class="row">
+                    <div class="cell txtbol">5.88%</div>
+                    <div class="cell"></div>
+                  </div>
+                </div>
+                <div style="margin-left: 8px;width: 60%;">
+                  <h2>9. Distribution of Opportunities </h2>
+
+                  <kendo-chart>
+                    <!-- <kendo-chart-category-axis>
+              <kendo-chart-category-axis-item [categories]="['3rd Target', '2nd Target','1st Target','5th Target','4th Target']">
+              </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis> -->
+
+                    <kendo-chart-series>
+                      <kendo-chart-series-item type="column" [data]="sData" field="value" categoryField="name">
+                      </kendo-chart-series-item>
+                    </kendo-chart-series>
+
+                    <kendo-chart-axis-defaults [majorGridLines]="{ visible : false}">
+                    </kendo-chart-axis-defaults>
+
+                    <kendo-chart-value-axis>
+                      <kendo-chart-value-axis-item [line]="{visible:false}" [visible]="false">
+                      </kendo-chart-value-axis-item>
+                    </kendo-chart-value-axis>
+                  </kendo-chart>
+
+                </div>
+              </div>
+              <div class="btmSecChartInner" style="width: 100%;">
+                <allocation></allocation>
+              </div>
+        </div>
+  </kendo-splitter-pane>
+</kendo-splitter>
+
+<footer style="text-align: center; padding: 3px;background-color:#24292e;color: white;display: block;margin-top: 60px;">
+  <p>Aspire Systems </p>
+  <p>Copyright © 2022</p>
+</footer>

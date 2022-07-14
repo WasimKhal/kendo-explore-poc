@@ -1,0 +1,74 @@
+<div style="width: 100% ;margin:4px;">
+
+    <h2 style="float: left;">10. Allocation of Leads(Managers) </h2>
+    <select name="year" id="year" style="    border: 1px solid #dddd;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #EBEBF1;
+    margin: 20px;">
+        <option value="2022">FY 2022</option>
+        <option value="2021">FY 2021</option>
+    </select>
+    <br>
+    <div style="width: 90%;">
+        <kendo-chart>
+
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="chartdata.catagories" [labels]="{ rotation: {angle: 45}}">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+
+            <kendo-chart-series>
+                <kendo-chart-series-item type="column" field="value" [stack]="true" [data]="item.value"
+                    [name]="item.name"
+                    [labels]="{ visible: false, color:'#FFFEFE', content:labelContent, position: 'center',background:''}"
+                    [gap]=".25" [spacing]=".25" [color]="item.color" *ngFor=" let item of chartdata.series">
+                    <kendo-chart-series-item-tooltip>
+                        <ng-template let-value="value">
+                            {{item.name}}: {{ value }}
+                        </ng-template>
+                    </kendo-chart-series-item-tooltip>
+
+                </kendo-chart-series-item>
+            </kendo-chart-series>
+
+        </kendo-chart>
+    </div>
+</div>
+<br>
+<div style="width: 100%;margin:4px;">
+    <h2 style="float: left;">11. Allocation of Leads(Partners) </h2>
+    <select name="year" id="year" style="    border: 1px solid #dddd;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #EBEBF1;
+    margin: 20px;">
+        <option value="2022">FY 2022</option>
+        <option value="2021">FY 2021</option>
+    </select>
+
+    <div style="width: 50%;">
+        <kendo-chart>
+
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="chartdata2.catagories" [labels]="{ rotation: {angle: 0}}">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+
+            <kendo-chart-series>
+                <kendo-chart-series-item type="column" field="value" [stack]="true" [data]="item.value"
+                    [name]="item.name"
+                    [labels]="{ visible: false, color:'#FFFEFE', content:labelContent, position: 'center',background:''}"
+                    [gap]=".25" [spacing]=".25" [color]="item.color" *ngFor=" let item of chartdata2.series">
+                    <kendo-chart-series-item-tooltip>
+                        <ng-template let-value="value">
+                            {{item.name}}: {{ value }}
+                        </ng-template>
+                    </kendo-chart-series-item-tooltip>
+
+                </kendo-chart-series-item>
+            </kendo-chart-series>
+
+        </kendo-chart>
+    </div>
+</div>

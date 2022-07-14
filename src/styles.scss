@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+div.k-window-content {
+    padding: 0;
+}
+
+.headerCustomClass {
+    color: #fff;
+}
+
+th.headerCustomClass {
+    text-align: left;
+}
+
+.k-grid th,
+.k-grid td {
+
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+.k-chart text {
+    font-family: Arial, Helvetica, sans-serif !important
+}
+
+.k-chart,
+.k-stockchart {
+    height: 330px !important;
+}
+
+.btmSecChartInner {
+    border: 1px solid #ddd;
+    display: table-cell;
+    width: 50%;
+    margin: 8px;
+    border-radius: 8px;
+    // height: 600px;
+}
+
+.table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 4px;
+    margin-left: 14px;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    padding: 6px;
+}
+.cgold
+{
+    background-color: #FED600;
+    color: white;
+    font-weight: bold;
+}
+.cblue
+{
+    background-color: #0F8CFF;
+    color: white;
+    font-weight: bold;
+}
+.cgreen
+{
+    background-color: #6EAD47;
+    color: white;
+    font-weight: bold;
+}
+.txtbol
+{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+@import "~@progress/kendo-theme-material/scss/button";
+// kendo-angular-charts
+@import "~@progress/kendo-theme-material/scss/dataviz/_index.scss";

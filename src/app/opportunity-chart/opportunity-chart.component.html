@@ -1,0 +1,49 @@
+<div style="display: flex">
+    <div style="width:80%;display: table-cell;">
+        <h2>6. Opportunity Status by Managers </h2>
+    </div>
+    <div style="display: table-cell;font-size:14px;font-weight: bold ;margin-top:8px ;">
+        This year's progress
+        <!-- <kendo-dropdownlist [data]="chartdata.series" textField="name" valueField="name" [defaultItem]="defaultitem">
+        </kendo-dropdownlist> -->
+        <kendo-dropdownlist [data]="oppdata" textField="name" valueField="name" [defaultItem]="defaultItem"
+            (valueChange)="valueChange($event)">
+        </kendo-dropdownlist>
+    </div>
+</div>
+
+<kendo-chart>
+
+    <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item [categories]="chartdata.catagories">
+        </kendo-chart-category-axis-item>
+    </kendo-chart-category-axis>
+
+    <kendo-chart-series>
+        <kendo-chart-series-item type="bar" field="value" [stack]="true" [data]="item.value" [name]="item.name"
+            [labels]="{ visible: true, color:'#FFFEFE', content:labelContent, position: 'center',background:''}"
+            [gap]=".25" [spacing]=".25" [color]="item.color" *ngFor=" let item of chartdata.series">
+            <kendo-chart-series-item-tooltip>
+                <ng-template let-value="value">
+                    {{item.name}}: {{ value }}
+                </ng-template>
+            </kendo-chart-series-item-tooltip>
+
+        </kendo-chart-series-item>
+
+        <kendo-chart-axis-defaults [majorGridLines]="{ visible : false}">
+        </kendo-chart-axis-defaults>
+
+        <kendo-chart-value-axis>
+            <kendo-chart-value-axis-item [min]="0">
+            </kendo-chart-value-axis-item>
+        </kendo-chart-value-axis>
+
+        <kendo-chart-legend [title]="legendTitle" [padding]="20" [margin]="10" [padding]="10" [width]="150"
+            [offsetX]="0" [offsetY]="-50">
+            <!-- <kendo-chart-legend-item [visual]="visualFn"></kendo-chart-legend-item>  -->
+        </kendo-chart-legend>
+
+    </kendo-chart-series>
+
+</kendo-chart>

@@ -1,0 +1,35 @@
+{
+    "catagories": ["Dylan Lee", "Alaric Lee", "LanPeng Chin", "Cindy Lee", "Rebecca Lee", "Amy To", "Shelim Talukder", "Jung Ming Teo", "Denis Philippov", "Prannay Shah", "Arpita Sen", "Shariza Abdul", "Valerie Koo", "Wilson Kook", "Garrick Chua", "Peter Chan", "Fiona Wong", "Max Loy/valerie Koo", "Jun Ming"],
+    "series": [
+        {
+            "name": "5th Target",
+            "value": [5,0,3,0,4,13,5,3,4,0,5,0,2,0,0,0,0,0,0],
+            "color": "#5a7fb8"
+        },
+        {
+            "name": "4th Target",
+            "value": [0,7,2,3,0,0,0,0,0,0,0,0,5,2,2,0,0,0,2],
+            "color": "#b45650"
+        }
+        ,
+        {
+            "name": "3rd Target",
+            "value": [46,24,31,12,28,57,26,28,12,42,25,17,21,5,4,0,4,4,0],
+            "color": "#a0ba66"
+        }
+        ,
+        {
+            "name": "2nd Target",
+            "value": [4,0,21,26,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            "color": "#7d649d"
+        }
+        ,
+        {
+            "name": "1st Target",
+            "value": [10,8,7,13,16,0,12,6,26,4,6,7,2,3,0,0,0,0],
+            "color": "#64a9c3"
+        }
+        
+    ]
+
+}
